@@ -1,0 +1,51 @@
+<div class="row-signup col-sm-8 col-sm-offset-2">
+
+  <h1 class="page-header">Welcome to Ping Pong Central</h1>
+
+  <%= form_for @player, url: signup_path, html: {class:"form-horizontal"} do |f| %>
+
+    <% if @player.errors.present? %>
+      <div class="alert alert-danger" role="alert">
+        <% @player.errors.full_messages.each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="col-sm-7 col-sm-offset-1">
+      <p>Create your new account. <span class="hasAcct"> Already have an account? <%= link_to signin_path do %>Sign in<% end %></span></p>
+
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-7 col-sm-offset-1">
+        <%= f.text_field :name, class: "form-control ", placeholder: "name" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-7 col-sm-offset-1">
+        <%= f.text_field :email, class: "form-control ", placeholder: "email" %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="col-sm-7 col-sm-offset-1">
+        <%= f.password_field :password, class: "form-control ", placeholder: "password" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-7 col-sm-offset-1">
+        <%= f.password_field :password_confirmation, class: "form-control ", placeholder: "password confirmation" %>
+      </div>
+    </div>
+
+    <div class="form-group actions">
+      <div class="col-sm-7 col-sm-offset-1">
+        <%= f.submit "CREATE ACCOUNT & CONTINUE", class: "btn btn-default", id: "createAcct" %>
+      </div>
+    </div>
+  <% end %>
+</div>

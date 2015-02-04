@@ -1,0 +1,98 @@
+#wrapper {
+  background: #F3F3F4; }
+
+/* NAVBAR: SIDEBAR */
+#sidebar {
+  background: #2A3D50;
+  z-index: 5;
+  padding: 0; }
+
+#sidebar #side-menu li {
+  padding: 10px 0; }
+  #sidebar #side-menu li a {
+    color: #7DCC93;
+    font-size: 1.1em; }
+    #sidebar #side-menu li a:hover {
+      cursor: pointer;
+      color: #2A3D50; }
+    #sidebar #side-menu li a:visited {
+      outline: 0;
+      outline-offset: 0; }
+
+#logo {
+  width: 60%; }
+
+.pingpong-logo {
+  border-bottom: 1px solid #7DCC93; }
+
+/* NAVBAR: TOP NAVBAR */
+.navbar-header {
+  float: right; }
+
+.row {
+  background: #FFF; }
+
+.row,
+#topNavBar {
+  max-height: 62px; }
+
+#logo-text {
+  width: 25%;
+  position: absolute;
+  top: 20px;
+  left: 20px; }
+
+.navbar-right {
+  padding-right: 2em; }
+
+.btn.btn-default.navbar-btn {
+  width: 130px;
+  color: #CCC; }
+
+#user-credential a:hover {
+  background: none; }
+
+.btn.btn-default.navbar-btn:hover {
+  color: #666666;
+  background: #FFF; }
+  .btn.btn-default.navbar-btn:hover:active {
+    background: #FFF; }
+
+.hasAcct {
+  color: #7DCC93;
+  float: right; }
+
+#welcome-player {
+  color: #7DCC93; }
+
+#user-credential .signout a {
+  color: #999999; }
+  #user-credential .signout a:hover {
+    color: #2A3D50; }
+
+/* BODY: CONTENT */
+.container {
+  margin-top: 18px;
+  background: #F3F3F4; }
+
+.row-signup,
+.row-signin {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #FFF;
+  padding-bottom: 2em; }
+
+.row-signin .form-control {
+  margin: 5px 0; }
+
+#createAcct,
+#signInAcct {
+  color: #F3F3F4;
+  background: #7DCC93;
+  border: 1px solid #40a35c; }
+
+#createAcct:hover,
+#signInAcct:hover {
+  background: #47b566;
+  color: #FFF; }
+
+/*# sourceMappingURL=pingpong.css.map */

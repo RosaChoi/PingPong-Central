@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Ping Pong Central: Game Board">
+
+  <title>PingPongCentral</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <nav id="sidebar" class="col-sm-1 navbar-default navbar-static-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav text-center" id="side-menu">
+          <li class="pingpong-logo">
+            <%= image_tag 'pingpong.svg', alt: 'Ping Pong Cengral', id: "logo" %>
+          </li>
+          <li>
+            <a id="rules" href="#" data-toggle="modal" data-target="#rulesModal">
+              <i class="fa fa-list"></i>
+              <P>Rules</P>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#playersModal">
+              <i class="fa fa-users"></i>
+              <p>Players</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-comments"></i>
+              <p>Messaging</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="row">
+      <nav id="topNavBar" class="col-sm-11 col-sm-offset-1 navbar navbar-fixed-top white-bg" role="navigation">
+        <%= link_to root_path do %>
+            <%= image_tag 'pcentral.svg', alt: 'Ping Pong Cengral', id: "logo-text" %>
+        <% end %>
+        <div class="navbar-right">
+          <ul id="user-credential" class="nav navbar-nav navbar-right">
+          <% if current_player %>
+            <li>
+              <a class="right floated item" id="welcome-player">Welcome, <%= current_player.name %></a>
+            </li>
+            <li class="signout">
+              <%= link_to "Sign Out", signout_path %>
+            </li>
+
+          <% else %>
+            <li>
+              <%= link_to signup_path do %>
+              <button type="button" class="btn btn-default navbar-btn">Sign Up</button>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to signin_path do %>
+              <button type="button" class="btn btn-default navbar-btn">Log In <i class="glyphicon glyphicon-lock"></i></button>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+        <!-- Modal:RULES -->
+    <div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="rulesModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Ping Pong Rules</h4>
+          </div>
+          <div class="modal-body">
+            <p><strong>Scoring</strong></p>
+            <ul>
+              <li>A match is played best 2 of 3 games.</li>
+              <li>For each game, the first player to reach 11 points wins that game, however a game must be won by at least a two point margin.</li>
+            </ul>
+            <p><strong>The Service</strong></p>
+            <ul>
+              <li>After you have served twice, it is the other player's turn to serve, and you continue the game, alternating every two serves.</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Back to your dashboard!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: PLAYERS -->
+    <div class="modal fade" id="playersModal" tabindex="-1" role="dialog" aria-labelledby="playersModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="playerModalLabel">Players</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <!-- <img src="..." alt="..."> -->
+                  <div class="caption">
+                  <h3>Thumbnail label</h3>
+                  <p>...</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Back to your dashboard!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>
