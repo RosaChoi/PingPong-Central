@@ -4,7 +4,8 @@ class WelcomeController < ApplicationController
   skip_before_action :authenticate_player
 
   def index
-    # @players = Player.all
-    # @player = Player.find(params[:id])
+    @players = Player.all
+    @player = Player.find(params[:id])
   end
+  
 end

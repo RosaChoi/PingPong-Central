@@ -6,6 +6,12 @@ $emerald: #7DCC93;
 $pink: #E06D93;
 $smoke: #F3F3F4;
 
+@mixin boxShadow {
+  -webkit-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+  box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
 #wrapper {
   background: $smoke;
 }
@@ -101,7 +107,7 @@ $smoke: #F3F3F4;
   }
 }
 
-/* BODY: CONTENT */
+/* PLAYER SIGNUP & SIGNIN PAGES*/
 .container {
   margin-top: 18px;
   background: $smoke;
@@ -130,3 +136,70 @@ $smoke: #F3F3F4;
   background: darken($emerald, 15%);
   color: #FFF;
 }
+
+/* BODY: CONTENT - LEADERBOARD */
+.rowA,
+.board {
+  background-color: #FFF;
+}
+
+.board {
+  padding: 1em 1.2em;
+  border-top: 3px solid $emerald;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  @include boxShadow;
+
+}
+.board-title {
+  color: $navy;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $emerald;
+}
+
+/* BODY: CONTENT - PLAYER STATS*/
+#gameStats ul li {
+  display: inline;
+}
+
+#stat span {
+  float: left;
+  position: relative;
+  top: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 3px;
+  margin: 0 12px 11px 0;
+  color: #FFF;
+  line-height: 56px;
+  text-align: center;
+  transition: all 0.2s ease;
+  @include boxShadow;
+
+  &#win {
+    background: darken($emerald, 15%);
+  }
+  &#loss {
+    background: $emerald;
+  }
+  &#points {
+    background: lighten($skyblue, 10%);
+  }
+}
+
+#gameStats,
+#middle-board {
+  overflow: hidden;
+}
+.fa-trophy,
+.fa-line-chart {
+  color: $emerald;
+  font-size: 28px;
+}
+.glyphicon-list-alt {
+  color: $emerald;
+}
+
+
+
+/* BODY: CONTENT - GAME HISTORY*/
